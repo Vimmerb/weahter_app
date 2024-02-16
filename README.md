@@ -1,16 +1,18 @@
-# weather_test_app
+# Weather_app
 
-A new Flutter project.
+Мобильное приложение для получения данных о погоде.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Описание:
 
-A few resources to get you started if this is your first Flutter project:
+Реализованы
+- интерфейс экранов регистрации и авторизации, экрана отображения погоды по макету Figma;
+- локальное хранение данных (shared_preferences);
+- взаимодействие с API OpenWeatherMap (http);
+- определение геолокации и названия города по координатам (geolocator, geocoding);
+- форматирование времени и направления ветра (intl);
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Платформа:
+
+Android
