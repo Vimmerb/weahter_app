@@ -3,6 +3,21 @@
 Мобильное приложение для получения данных о погоде.
 
 
+<div style="display: flex;">
+    <img src="screenshots/1.jpg" style="width: 20%;" />
+    <img src="screenshots/2.jpg" style="width: 20%;" />
+    <img src="screenshots/3.jpg" style="width: 20%;" />
+</div>
+
+<div style="display: flex;">
+    <img src="screenshots/4.jpg" style="width: 20%;" />
+    <img src="screenshots/5.jpg" style="width: 20%;" />
+    <img src="screenshots/6.jpg" style="width: 20%;" />
+    <img src="screenshots/7.jpg" style="width: 20%;" />
+</div>
+
+
+
 ## Описание:
 
 Реализованы
