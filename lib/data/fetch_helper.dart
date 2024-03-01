@@ -1,5 +1,6 @@
-import 'dart:convert';
-import 'package:http/http.dart' as http;
+// import 'dart:convert';
+// import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
 import 'package:weather_test_app/data/const.dart';
 
 /// Класс-помощник для выполнения запросов к API OpenWeatherMap
@@ -25,25 +26,34 @@ class FetchHelper {
     final fullUrl =
         '$baseUrl$request?$parameters&appid=$openWeatherMapKey&units=metric';
 
-    // Выполнение HTTP-GET-запроса по указанному URL с использованием пакета http.
-    // await - выполнение программы приостанавливается до завершения запроса
-    http.Response response = await http.get(Uri.parse(fullUrl));
-    // проверка: статус код 200 - успешное выполнение HTTP-запроса
+// Выполнение HTTP-GET-запроса по указанному URL с использованием пакета dio.
+    Response response = await Dio().get(fullUrl);
     if (response.statusCode == 200) {
-      // Если запрос успешен, то тело ответа (переменная body),
-      // полученное в виде строки, декодируется из JSON
-      // в Dart-объект с помощью функции jsonDecode.
-      final body = jsonDecode(response.body);
-      // Тело ответа выводится в консоль для отладки или просмотра полученных данных.
-      print('Response:\n$body');
-      // В случае успешного выполнения запроса и получения данных,
-      // метод getWeatherData возвращает объект body -
-      // декодированные данные о погоде в формате Dart.
-      return body;
-      // Если статус код ответа не равен 200, в консоль
-      // выводится статус код для отладки или обработки ошибок.
+      print('Response:\n${response.data}');
+      return response.data;
     } else {
       print(response.statusCode);
     }
+
+    // // Выполнение HTTP-GET-запроса по указанному URL с использованием пакета http.
+    // // await - выполнение программы приостанавливается до завершения запроса
+    // http.Response response = await http.get(Uri.parse(fullUrl));
+    // // проверка: статус код 200 - успешное выполнение HTTP-запроса
+    // if (response.statusCode == 200) {
+    //   // Если запрос успешен, то тело ответа (переменная body),
+    //   // полученное в виде строки, декодируется из JSON
+    //   // в Dart-объект с помощью функции jsonDecode.
+    //   final body = jsonDecode(response.body);
+    //   // Тело ответа выводится в консоль для отладки или просмотра полученных данных.
+    //   print('Response:\n$body');
+    //   // В случае успешного выполнения запроса и получения данных,
+    //   // метод getWeatherData возвращает объект body -
+    //   // декодированные данные о погоде в формате Dart.
+    //   return body;
+    //   // Если статус код ответа не равен 200, в консоль
+    //   // выводится статус код для отладки или обработки ошибок.
+    // } else {
+    //   print(response.statusCode);
+    // }
   }
 }

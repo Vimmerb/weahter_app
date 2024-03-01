@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:weather_test_app/common/colors.dart';
-import 'package:weather_test_app/common/routes.dart';
 import 'package:weather_test_app/common/spacers.dart';
 import 'package:weather_test_app/common/text_styles.dart';
 import 'package:weather_test_app/helpers/preferences/shared_preferences.dart';
@@ -183,8 +183,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             await UserPreferences().setUserEmail(_email);
             await UserPreferences().setUserPassword(_password);
             await UserPreferences().setUserRePassword(_rePassword);
-
-            Navigator.pushNamed(context, Routes.main);
+            context.go('/main');
 
             // Всплывающее сообщение пользователю: регистрация завершена
             ScaffoldMessenger.of(context).showSnackBar(
@@ -209,7 +208,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
         setState(() {
           _isPressed = true;
         });
-        Navigator.pushNamed(context, Routes.login);
+        // Navigator.pushNamed(context, Routes.login);
+        context.go('/login');
       },
       child: Center(
         child: Text(
