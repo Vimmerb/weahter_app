@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:weather_test_app/common/colors.dart';
-import 'package:weather_test_app/common/routes.dart';
 import 'package:weather_test_app/common/spacers.dart';
 import 'package:weather_test_app/common/text_styles.dart';
 import 'package:weather_test_app/helpers/preferences/shared_preferences.dart';
@@ -133,7 +133,7 @@ class _LoginScreenState extends State<LoginScreen> {
       () async {
         if (_formKey.currentState!.validate()) {
           if (_checkData(_email, _password)) {
-            Navigator.pushNamed(context, Routes.main);
+            context.go('/main');
 
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
@@ -167,7 +167,8 @@ class _LoginScreenState extends State<LoginScreen> {
         setState(() {
           _isPressed = true;
         });
-        Navigator.pushNamed(context, Routes.register);
+        // Navigator.pushNamed(context, Routes.register);
+        context.go('/register');
       },
       child: Center(
         child: Text(

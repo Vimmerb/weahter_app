@@ -39,17 +39,7 @@ class WeatherCard extends StatelessWidget {
                 ),
               ],
             ),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                // Данные об ощущении температуры
-                Text(
-                  'Feel like ${weatherData!.feelsLike} °C',
-                  style: textStyleInter20Black(),
-                ),
-              ],
-            ),
+            NewWidget(weatherData: weatherData),
           ],
         ),
         sizedBoxHeight70,
@@ -144,6 +134,30 @@ class WeatherCard extends StatelessWidget {
               ],
             ),
           ],
+        ),
+      ],
+    );
+  }
+}
+
+class NewWidget extends StatelessWidget {
+  const NewWidget({
+    super.key,
+    required this.weatherData,
+  });
+
+  final WeatherData? weatherData;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        // Данные об ощущении температуры
+        Text(
+          'Feel like ${weatherData!.feelsLike} °C',
+          style: textStyleInter20Black(),
         ),
       ],
     );
