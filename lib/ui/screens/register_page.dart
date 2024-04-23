@@ -213,7 +213,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       },
       child: Center(
         child: Text(
-          'ALREADY HAVE EN ACCOUNT',
+          'ALREADY HAVE AN ACCOUNT',
           style: _isPressed ? textStyleInter16Green() : textStyleInter16Black(),
         ),
       ),
